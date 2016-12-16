@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.imageloader;
+package cn.llsmpdroid.belief.manager.imageloader;
 
 import android.content.Context;
 import android.widget.ImageView;

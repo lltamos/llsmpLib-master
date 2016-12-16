@@ -13,11 +13,13 @@ import android.os.Bundle;
  */
 
 public interface UiCallback {
-    void initData(Bundle savedInstanceState);
+    void onInitialization(Bundle savedInstanceState);
 
     void setListener();
 
     int getLayoutId();
 
     boolean useEventBus();
+
+    void onInitDataRemote();
 }

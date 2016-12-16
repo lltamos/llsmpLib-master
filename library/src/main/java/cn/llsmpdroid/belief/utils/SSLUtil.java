@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.tool;
+package cn.llsmpdroid.belief.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

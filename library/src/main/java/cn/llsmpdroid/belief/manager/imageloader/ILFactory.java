@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.imageloader;
+package cn.llsmpdroid.belief.manager.imageloader;
 
 /**
  * <p>Title:${type_inName}<p/>

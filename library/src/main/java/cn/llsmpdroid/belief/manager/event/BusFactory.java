@@ -1,7 +1,7 @@
-package cn.llsmpdroid.belief.event;
+package cn.llsmpdroid.belief.manager.event;
 
 
-import cn.llsmpdroid.belief.imageloader.ILFactory;
+import cn.llsmpdroid.belief.manager.imageloader.ILFactory;
 
 /**
  * <p>Title:${type_inName}<p/>

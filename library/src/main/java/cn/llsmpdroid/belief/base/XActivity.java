@@ -14,9 +14,9 @@ import android.view.WindowManager;
 
 import butterknife.Unbinder;
 import cn.llsmpdroid.belief.R;
-import cn.llsmpdroid.belief.event.BusFactory;
+import cn.llsmpdroid.belief.manager.event.BusFactory;
 import cn.llsmpdroid.belief.kit.KnifeKit;
-import cn.llsmpdroid.belief.tool.SystemBarTintManager;
+import cn.llsmpdroid.belief.utils.SystemBarTintManager;
 
 
 /**
@@ -55,7 +55,13 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
             setSupportActionBar(getSupportToolBar());
         initWindow();
         setListener();
-        initData(savedInstanceState);
+        this.onInitialization(savedInstanceState);
+        this.onInitDataRemote();
+    }
+
+
+    @Override
+    public void onInitDataRemote() {
     }
 
     protected void resolveIntentValue(Intent intent) {

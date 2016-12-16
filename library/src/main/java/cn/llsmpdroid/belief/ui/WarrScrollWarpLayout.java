@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.view;
+package cn.llsmpdroid.belief.ui;
 
 /**
  * Created by Litao-pc on 2016/6/16.

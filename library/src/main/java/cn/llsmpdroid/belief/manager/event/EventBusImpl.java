@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.event;
+package cn.llsmpdroid.belief.manager.event;
 
 import org.greenrobot.eventbus.EventBus;
 

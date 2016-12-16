@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.llsmpdroid.belief.tool;
+package cn.llsmpdroid.belief.utils;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

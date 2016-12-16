@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.log;
+package cn.llsmpdroid.belief.manager.log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

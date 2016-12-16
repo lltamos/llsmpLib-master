@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.tool;
+package cn.llsmpdroid.belief.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.Unbinder;
-import cn.llsmpdroid.belief.event.BusFactory;
+import cn.llsmpdroid.belief.manager.event.BusFactory;
 import cn.llsmpdroid.belief.kit.KnifeKit;
 
 /**
@@ -55,7 +55,12 @@ public abstract class XFragment extends Fragment implements UiCallback {
             BusFactory.getBus().register(this);
         }
         setListener();
-        initData(savedInstanceState);
+        this.onInitialization(savedInstanceState);
+        this.onInitDataRemote();
+    }
+
+    @Override
+    public void onInitDataRemote() {
     }
 
     @Override

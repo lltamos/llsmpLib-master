@@ -12,6 +12,10 @@
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_part_time.xml"
     },
     {
+        "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\layout\\abc_navi_tab_view.xml",
+        "source": "D:\\code\\llsmpLib-master\\library\\src\\main\\res\\layout\\abc_navi_tab_view.xml"
+    },
+    {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_layout_snackbar_include.xml"
     },
@@ -38,6 +42,10 @@
     {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\layout\\sweet_alert_dialog_view.xml",
+        "source": "D:\\code\\llsmpLib-master\\library\\src\\main\\res\\layout\\sweet_alert_dialog_view.xml"
     },
     {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\layout\\x_view_footer_load_more_simple.xml",

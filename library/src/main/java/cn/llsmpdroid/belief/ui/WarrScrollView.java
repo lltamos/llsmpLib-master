@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.view;
+package cn.llsmpdroid.belief.ui;
 
 import android.content.Context;
 import android.os.Build;

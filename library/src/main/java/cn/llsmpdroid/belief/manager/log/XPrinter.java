@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.log;
+package cn.llsmpdroid.belief.manager.log;
 
 import android.annotation.TargetApi;
 import android.os.Build;

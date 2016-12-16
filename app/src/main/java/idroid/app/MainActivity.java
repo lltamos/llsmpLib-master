@@ -8,7 +8,7 @@ public class MainActivity extends XActivity {
 
 
     @Override
-    public void initData(Bundle savedInstanceState) {
+    public void onInitialization(Bundle savedInstanceState) {
 
     }
 

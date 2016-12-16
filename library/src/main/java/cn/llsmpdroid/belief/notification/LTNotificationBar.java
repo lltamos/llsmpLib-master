@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import cn.llsmpdroid.belief.tool.ContextUtils;
+import cn.llsmpdroid.belief.utils.ContextUtils;
 
 /**
  * LK通知的管理器

@@ -96,6 +96,10 @@
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
+        "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_navi_tab_view.xml",
+        "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\bundles\\debug\\res\\layout\\abc_navi_tab_view.xml"
+    },
+    {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_item_subheader.xml"
     },
@@ -158,6 +162,10 @@
     {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\sweet_alert_dialog_view.xml",
+        "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\bundles\\debug\\res\\layout\\sweet_alert_dialog_view.xml"
     },
     {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media.xml",

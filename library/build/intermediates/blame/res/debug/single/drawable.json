@@ -110,5 +110,9 @@
     {
         "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "D:\\code\\llsmpLib-master\\library\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_oval_white.xml",
+        "source": "D:\\code\\llsmpLib-master\\library\\src\\main\\res\\drawable\\abc_oval_white.xml"
     }
 ]
