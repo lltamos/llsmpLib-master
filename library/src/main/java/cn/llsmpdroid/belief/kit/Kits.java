@@ -1050,6 +1050,16 @@ public class Kits {
         public static final String NETWORK_TYPE_UNKNOWN = "unknown";
         public static final String NETWORK_TYPE_DISCONNECT = "disconnect";
 
+
+        //监测网络是否连接
+        public static boolean isInternetConnection(Context context) {
+            ConnectivityManager connectivityManager =
+                    (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            boolean isConnected = (networkInfo != null && networkInfo.isConnectedOrConnecting());
+            return isConnected;
+        }
+
         public static int getNetworkType(Context context) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
