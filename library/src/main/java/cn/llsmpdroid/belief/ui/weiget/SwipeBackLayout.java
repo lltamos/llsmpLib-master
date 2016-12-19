@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.llsmpdroid.belief.ui;
+package cn.llsmpdroid.belief.ui.weiget;
 
 import android.app.Activity;
 import android.content.Context;

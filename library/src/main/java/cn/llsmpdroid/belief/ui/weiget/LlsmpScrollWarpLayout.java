@@ -1,8 +1,6 @@
-package cn.llsmpdroid.belief.ui;
+package cn.llsmpdroid.belief.ui.weiget;
 
-/**
- * Created by Litao-pc on 2016/6/16.
- */
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.OvershootInterpolator;
@@ -10,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 
 
-public class WarrScrollWarpLayout extends LinearLayout {
+public class LlsmpScrollWarpLayout extends LinearLayout {
 
 
     /**
@@ -25,7 +23,7 @@ public class WarrScrollWarpLayout extends LinearLayout {
     private Scroller mScroller;
 
 
-    public WarrScrollWarpLayout(Context context, AttributeSet attr) {
+    public LlsmpScrollWarpLayout(Context context, AttributeSet attr) {
         super(context, attr);
         this.setOrientation(LinearLayout.VERTICAL);
         // 初始化平滑滚动器
@@ -33,7 +31,7 @@ public class WarrScrollWarpLayout extends LinearLayout {
     }
 
 
-    public WarrScrollWarpLayout(Context context) {
+    public LlsmpScrollWarpLayout(Context context) {
         super(context);
         this.setOrientation(LinearLayout.VERTICAL);
         // 初始化平滑滚动器

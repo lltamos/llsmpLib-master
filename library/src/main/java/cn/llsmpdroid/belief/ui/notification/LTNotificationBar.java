@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.notification;
+package cn.llsmpdroid.belief.ui.notification;
 
 import android.app.Activity;
 import android.content.Context;

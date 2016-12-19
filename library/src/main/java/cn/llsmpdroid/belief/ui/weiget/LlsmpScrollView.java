@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.ui;
+package cn.llsmpdroid.belief.ui.weiget;
 
 import android.content.Context;
 import android.os.Build;
@@ -10,12 +10,12 @@ import android.widget.ScrollView;
 
 /**
  * 具有上下弹性滚动的ScrollView<br><br>
- * <strong>策略:</strong> 获取ScrollView的子视图并添加到自定义的{@link WarrScrollWarpLayout}滚动视图中
- * 将滚动视图添加到ScrollView作为子视图,所有的弹性滚动都由{@link WarrScrollWarpLayout}来完成
+ * <strong>策略:</strong> 获取ScrollView的子视图并添加到自定义的{@link LlsmpScrollWarpLayout}滚动视图中
+ * 将滚动视图添加到ScrollView作为子视图,所有的弹性滚动都由{@link LlsmpScrollWarpLayout}来完成
  *
  * @author tao
  */
-public class WarrScrollView extends ScrollView {
+public class LlsmpScrollView extends ScrollView {
 
 
     /**
@@ -74,7 +74,7 @@ public class WarrScrollView extends ScrollView {
     /**
      * 自定义的弹性滚动视图
      */
-    private WarrScrollWarpLayout mContentLayout;
+    private LlsmpScrollWarpLayout mContentLayout;
 
     /**
      * OverScroll监听器
@@ -136,18 +136,18 @@ public class WarrScrollView extends ScrollView {
      */
     private int mOverScrollTrigger = TRIGGER_HEIGHT;
 
-    public WarrScrollView(Context context, AttributeSet attrs, int defStyle) {
+    public LlsmpScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initScrollView();
     }
 
 
-    public WarrScrollView(Context context, AttributeSet attrs) {
+    public LlsmpScrollView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
 
-    public WarrScrollView(Context context) {
+    public LlsmpScrollView(Context context) {
         this(context, null);
     }
 
@@ -351,7 +351,7 @@ public class WarrScrollView extends ScrollView {
     /**
      * 功能描述:初始化滚动视图 <br>
      * <br>
-     * <strong>策略:</strong> 获取ScrollView的子视图并添加到自定义的{@link WarrScrollWarpLayout}滚动视图中
+     * <strong>策略:</strong> 获取ScrollView的子视图并添加到自定义的{@link LlsmpScrollWarpLayout}滚动视图中
      * 将滚动视图添加到ScrollView作为子视图
      */
     private void initOverScrollLayout() {
@@ -361,7 +361,7 @@ public class WarrScrollView extends ScrollView {
             // 获取ScrollView的子视图
             View child = getChildAt(0);
             // 初始化弹性滚动视图
-            mContentLayout = new WarrScrollWarpLayout(getContext());
+            mContentLayout = new LlsmpScrollWarpLayout(getContext());
             // 移除ScrollView所有视图
             this.removeAllViews();
             // 将原先ScrollView子视图加入到弹性滚动视图中

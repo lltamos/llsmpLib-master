@@ -1,9 +1,10 @@
-package cn.llsmpdroid.belief.net;
+package cn.llsmpdroid.belief.net.retrift;
 
 import android.text.TextUtils;
 
 import java.lang.reflect.Field;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -14,6 +15,7 @@ public class RestApi {
 
     private static RestApi mInstance;
     public static boolean isDebug = false;
+    private Interceptor interceptor;
 
     public static synchronized RestApi getInstance() {
         if (mInstance == null)
@@ -22,7 +24,7 @@ public class RestApi {
     }
 
     public void bug(boolean isDebug) {
-        this.isDebug = isDebug;
+        RestApi.isDebug = isDebug;
     }
 
     // create retrofit singleton
@@ -67,12 +69,16 @@ public class RestApi {
     }
 
     // create okHttpClient singleton
-    OkHttpClient createOkHttpClient(boolean debug) {
+    private OkHttpClient createOkHttpClient(boolean debug) {
         return new OkHttpClient.Builder()
-                .addNetworkInterceptor(new HttpCacheInterceptor())
+                .addNetworkInterceptor(interceptor)
                 .addInterceptor(
                         new HttpLoggingInterceptor().setLevel(
                                 debug ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE))
                 .build();
+    }
+
+    public void setInterceptor(Interceptor interceptor) {
+        this.interceptor = interceptor;
     }
 }

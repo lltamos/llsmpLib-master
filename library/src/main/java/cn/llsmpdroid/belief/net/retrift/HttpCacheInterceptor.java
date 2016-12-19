@@ -1,5 +1,7 @@
-package cn.llsmpdroid.belief.net;
+package cn.llsmpdroid.belief.net.retrift;
 
+
+import android.content.Context;
 
 import java.io.IOException;
 
@@ -9,12 +11,14 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class HttpCacheInterceptor implements Interceptor {
+public abstract class HttpCacheInterceptor implements Interceptor {
+
+    abstract Context builderContext();
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        if (!Kits.NetWork.isInternetConnection(MainApplication.getContext())) {
+        if (!Kits.NetWork.isInternetConnection(builderContext())) {
             request = request.newBuilder()
                     .cacheControl(CacheControl.FORCE_CACHE)
                     .build();
@@ -22,7 +26,7 @@ public class HttpCacheInterceptor implements Interceptor {
 
         Response response = chain.proceed(request);
 
-        if (Kits.NetWork.isInternetConnection(MainApplication.getContext())) {
+        if (Kits.NetWork.isInternetConnection(builderContext())) {
             int maxAge = 60 * 60; // read from cache for 1 minute
             response.newBuilder()
                     .removeHeader("Pragma")

@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.ui;
+package cn.llsmpdroid.belief.ui.weiget;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
