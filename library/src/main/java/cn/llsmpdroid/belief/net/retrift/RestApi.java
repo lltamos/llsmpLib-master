@@ -1,5 +1,6 @@
 package cn.llsmpdroid.belief.net.retrift;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import java.lang.reflect.Field;
@@ -14,12 +15,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestApi {
 
     private static RestApi mInstance;
+
     public static boolean isDebug = false;
+
     private Interceptor interceptor;
 
     public static synchronized RestApi getInstance() {
-        if (mInstance == null)
+        if (mInstance == null) {
             mInstance = new RestApi();
+        }
         return mInstance;
     }
 
@@ -28,17 +32,17 @@ public class RestApi {
     }
 
     // create retrofit singleton
-    private Retrofit createApiClient(String baseUrl) {
+    private Retrofit createApiClient(Context c, String baseUrl) {
         return new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .client(createOkHttpClient(isDebug))
-                .build();
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            .client(createOkHttpClient(c, isDebug))
+            .build();
     }
 
     // create api service singleton
-    public <T> T create(String baseUrl, Class<T> clz) {
+    public <T> T create(Context c, String baseUrl, Class<T> clz) {
         String service_url = "";
         try {
             Field field1 = clz.getField("BASE_URL");
@@ -49,12 +53,12 @@ public class RestApi {
             e.getMessage();
             e.printStackTrace();
         }
-        return createApiClient(
-                TextUtils.isEmpty(service_url) ? baseUrl : service_url).create(clz);
+        return createApiClient(c,
+            TextUtils.isEmpty(service_url) ? baseUrl : service_url).create(clz);
     }
 
     // create api service baseUrl singleton
-    public <T> T create(Class<T> clz) {
+    public <T> T create(Context c, Class<T> clz) {
         String service_url = "";
         try {
             Field field1 = clz.getField("BASE_URL");
@@ -65,17 +69,17 @@ public class RestApi {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return createApiClient(service_url).create(clz);
+        return createApiClient(c, service_url).create(clz);
     }
 
     // create okHttpClient singleton
-    private OkHttpClient createOkHttpClient(boolean debug) {
+    private OkHttpClient createOkHttpClient(Context c, boolean debug) {
         return new OkHttpClient.Builder()
-                .addNetworkInterceptor(interceptor)
-                .addInterceptor(
-                        new HttpLoggingInterceptor().setLevel(
-                                debug ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE))
-                .build();
+            .addNetworkInterceptor(new HttpCacheInterceptor(c))
+            .addInterceptor(
+                new HttpLoggingInterceptor().setLevel(
+                    debug ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE))
+            .build();
     }
 
     public void setInterceptor(Interceptor interceptor) {

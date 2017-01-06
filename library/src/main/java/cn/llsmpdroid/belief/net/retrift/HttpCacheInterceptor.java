@@ -11,33 +11,38 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public abstract class HttpCacheInterceptor implements Interceptor {
+public class HttpCacheInterceptor implements Interceptor {
 
-    abstract Context builderContext();
+    private Context builderContext;
+
+    public HttpCacheInterceptor(Context c) {
+        builderContext = c;
+    }
+
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        if (!Kits.NetWork.isInternetConnection(builderContext())) {
+        if (!Kits.NetWork.isInternetConnection(builderContext)) {
             request = request.newBuilder()
-                    .cacheControl(CacheControl.FORCE_CACHE)
-                    .build();
+                .cacheControl(CacheControl.FORCE_CACHE)
+                .build();
         }
 
         Response response = chain.proceed(request);
 
-        if (Kits.NetWork.isInternetConnection(builderContext())) {
+        if (Kits.NetWork.isInternetConnection(builderContext)) {
             int maxAge = 60 * 60; // read from cache for 1 minute
             response.newBuilder()
-                    .removeHeader("Pragma")
-                    .header("Cache-Control", "public, max-age=" + maxAge)
-                    .build();
+                .removeHeader("Pragma")
+                .header("Cache-Control", "public, max-age=" + maxAge)
+                .build();
         } else {
             int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks stale
             response.newBuilder()
-                    .removeHeader("Pragma")
-                    .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                    .build();
+                .removeHeader("Pragma")
+                .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                .build();
         }
         return response;
     }
