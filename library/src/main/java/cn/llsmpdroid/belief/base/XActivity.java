@@ -35,8 +35,11 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
      * main thread
      */
     private long mUIThreadId;
+
     protected Activity context;
+
     protected UiDelegate uiDelegate;
+
     private Unbinder unbinder;
 
     @Override
@@ -51,13 +54,17 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
             unbinder = KnifeKit.bind(this);
         }
 
-        if (getSupportToolBar() != null)
+        if (getSupportToolBar() != null) {
             setSupportActionBar(getSupportToolBar());
+        }
         initWindow();
         setListener();
+        this.initVariables();
         this.onInitialization(savedInstanceState);
         this.onInitDataRemote();
     }
+
+    protected abstract void initVariables();
 
 
     @Override
@@ -132,7 +139,7 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
     private void initWindow() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && isSetStatusBar()) {
             getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             tintManager = new SystemBarTintManager(this);
             tintManager.setStatusBarTintEnabled(true);
             tintManager.setStatusBarTintResource(R.color.x_blue);
@@ -161,7 +168,9 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
     }
 
     private static final String TAG = "XActivity";
+
     private boolean isAlive = false;
+
     private boolean isRunning = false;
 
     protected ProgressDialog progressDialog = null;
@@ -170,7 +179,8 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
         try {
             showProgressDialog(null, context.getResources().getString(stringResId));
         } catch (Exception e) {
-            Log.e(TAG, "showProgressDialog  showProgressDialog(null, context.getResources().getString(stringResId));");
+            Log.e(TAG,
+                "showProgressDialog  showProgressDialog(null, context.getResources().getString(stringResId));");
         }
     }
 
@@ -217,7 +227,7 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
             public void run() {
                 if (progressDialog == null || !progressDialog.isShowing()) {
                     Log.w(TAG, "dismissProgressDialog  progressDialog == null" +
-                            " || progressDialog.isShowing() == false >> return;");
+                        " || progressDialog.isShowing() == false >> return;");
                     return;
                 }
                 progressDialog.dismiss();

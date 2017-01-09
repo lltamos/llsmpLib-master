@@ -39,62 +39,14 @@ public class MainActivity extends XActivity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    protected void initVariables() {
+
+    }
+
     @OnClick(R.id.btn1)
     public void onClick() {
-        XLog.d("xxxx","aaa");
-        XLog.json("{\n" +
-                "  \"content\": [\n" +
-                "    {\n" +
-                "      \"fName\": \"XZBM\",\n" +
-                "      \"fNameCHS\": \"乡镇编码\",\n" +
-                "      \"fType\": \"Char\",\n" +
-                "      \"fLen\": \"20\",\n" +
-                "      \"fDec\": \"0\",\n" +
-                "      \"fKey\": \"true\",\n" +
-                "      \"frequired\": \"true\",\n" +
-                "      \"fcode\": \"\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"fName\": \"XZMC\",\n" +
-                "      \"fNameCHS\": \"乡镇名称\",\n" +
-                "      \"fType\": \"Char\",\n" +
-                "      \"fLen\": \"20\",\n" +
-                "      \"fDec\": \"0\",\n" +
-                "      \"fKey\": \"true\",\n" +
-                "      \"frequired\": \"true\",\n" +
-                "      \"fcode\": \"\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"fName\": \"JZCBM\",\n" +
-                "      \"fNameCHS\": \"建制村编码\",\n" +
-                "      \"fType\": \"Char\",\n" +
-                "      \"fLen\": \"20\",\n" +
-                "      \"fDec\": \"0\",\n" +
-                "      \"fKey\": \"true\",\n" +
-                "      \"frequired\": \"true\",\n" +
-                "      \"fcode\": \"\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"fName\": \"JZCMC\",\n" +
-                "      \"fNameCHS\": \"建制村名称\",\n" +
-                "      \"fType\": \"Char\",\n" +
-                "      \"fLen\": \"20\",\n" +
-                "      \"fDec\": \"0\",\n" +
-                "      \"fKey\": \"true\",\n" +
-                "      \"frequired\": \"true\",\n" +
-                "      \"fcode\": \"\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"fName\": \"AJCHNXF\",\n" +
-                "      \"fNameCHS\": \"按建筑材料和使用年限分\",\n" +
-                "      \"fType\": \"Char\",\n" +
-                "      \"fLen\": \"1\",\n" +
-                "      \"fDec\": \"0\",\n" +
-                "      \"fKey\": \"false\",\n" +
-                "      \"frequired\": \"false\",\n" +
-                "      \"fcode\": \"TC_ajchnxf\"\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}\n");
+        XLog.d("xxxx", "aaa");
+
     }
 }

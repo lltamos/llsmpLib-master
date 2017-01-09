@@ -10,8 +10,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-
 import cn.llsmpdroid.belief.manager.log.XLog;
+
 
 public class LogWriter {
 
@@ -24,7 +24,6 @@ public class LogWriter {
     public static synchronized void writeLog(Context context, Throwable ex, File file, String time, WriteCallback writeCallback) {
         if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             if (DEBUG) {
-                XLog.d("LogWriter", "sdcard unmounted,skip dump exception");
                 return;
             }
         }

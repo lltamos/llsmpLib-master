@@ -214,7 +214,6 @@ public class Kits {
         }
     }
 
-
     public static class Dimens {
 
         public static float dpToPx(Context context, float dp) {
@@ -259,7 +258,6 @@ public class Kits {
             return (int) (spValue * fontScale + 0.5f);
         }
     }
-
 
     public static class Random {
         public static final String NUMBERS_AND_LETTERS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -1040,7 +1038,6 @@ public class Kits {
         }
 
     }
-
 
     public static class NetWork {
         public static final String NETWORK_TYPE_WIFI = "wifi";

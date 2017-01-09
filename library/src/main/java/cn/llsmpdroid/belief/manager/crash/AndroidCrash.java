@@ -7,14 +7,18 @@ import android.os.Process;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import cn.llsmpdroid.belief.manager.interfacee.HttpReportCallback;
 
 public class AndroidCrash implements Thread.UncaughtExceptionHandler {
 
     private static AndroidCrash sInstance = new AndroidCrash();
+
     private Thread.UncaughtExceptionHandler mDefaultCrashHandler;
+
     private Context mContext;
+
     private HttpReportCallback mCallback;
 
     public AndroidCrash() {
@@ -35,8 +39,10 @@ public class AndroidCrash implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(final Thread thread, final Throwable ex) {
         long current = System.currentTimeMillis();
-        String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(current));
-        final File file = new File(LogWriter.PATH + LogWriter.FILE_NAME + time + LogWriter.FILE_NAME_SUFFIX);
+        String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
+            .format(new Date(current));
+        final File file = new File(
+            LogWriter.PATH + LogWriter.FILE_NAME + time + LogWriter.FILE_NAME_SUFFIX);
 
         //为了防止上传时文件没有写入完成
         LogWriter.writeLog(mContext, ex, file, time, new LogWriter.WriteCallback() {
@@ -58,10 +64,11 @@ public class AndroidCrash implements Thread.UncaughtExceptionHandler {
                 Looper.prepare();
                 try {
                     //处理错误
-                    if (mDefaultCrashHandler != null)
+                    if (mDefaultCrashHandler != null) {
                         mDefaultCrashHandler.uncaughtException(thread, ex);
-                    else
+                    } else {
                         Process.killProcess(Process.myPid());
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

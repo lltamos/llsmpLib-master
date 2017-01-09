@@ -5,7 +5,6 @@ import android.text.TextUtils;
 
 import java.lang.reflect.Field;
 
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -17,8 +16,6 @@ public class RestApi {
     private static RestApi mInstance;
 
     public static boolean isDebug = false;
-
-    private Interceptor interceptor;
 
     public static synchronized RestApi getInstance() {
         if (mInstance == null) {
@@ -82,9 +79,6 @@ public class RestApi {
             .build();
     }
 
-    public void setInterceptor(Interceptor interceptor) {
-        this.interceptor = interceptor;
-    }
 
 
 }
