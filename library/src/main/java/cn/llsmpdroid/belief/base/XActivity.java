@@ -52,16 +52,21 @@ public abstract class XActivity extends AppCompatActivity implements UiCallback 
         if (getLayoutId() > 0) {
             setContentView(getLayoutId());
             unbinder = KnifeKit.bind(this);
+
         }
 
         if (getSupportToolBar() != null) {
-            setSupportActionBar(getSupportToolBar());
+            deployActionBar(getSupportToolBar());
         }
         initWindow();
         setListener();
         this.initVariables();
         this.onInitialization(savedInstanceState);
         this.onInitDataRemote();
+    }
+
+    protected void deployActionBar(Toolbar bar) {
+        setSupportActionBar(getSupportToolBar());
     }
 
     protected abstract void initVariables();

@@ -1,10 +1,17 @@
 package cn.llsmpdroid.belief.base;
 
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
+
 import android.app.Activity;
 import android.app.Application;
 import android.os.Handler;
 
 import java.util.LinkedList;
+
+import cn.llsmpdroid.belief.utils.CrashUtils;
+import cn.llsmpdroid.belief.utils.LogUtils;
+import cn.llsmpdroid.belief.utils.Utils;
 
 /**
  * <p>Title:${type_inName}<p/>
@@ -16,6 +23,14 @@ import java.util.LinkedList;
  * @date on 2017/1/9
  */
 public abstract class XApplication extends Application {
+
+    private static XApplication appContext;
+
+    private RefWatcher mRefWatcher;
+
+    public static XApplication getInstance() {
+        return appContext;
+    }
 
     private static Handler mHandler = new Handler();
 
@@ -32,6 +47,18 @@ public abstract class XApplication extends Application {
         super.onCreate();
         // 存放所有activity的集合
         mActivityList = new LinkedList<>();
+        // 内存泄露检查工具
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        mRefWatcher = LeakCanary.install(this);
+        appContext = this;
+        Utils.init(appContext);
+        CrashUtils.getInstance().init();
+        LogUtils.getBuilder().setTag(getPackageName()).setLog2FileSwitch(true).create();
+
     }
 
 
@@ -69,5 +96,9 @@ public abstract class XApplication extends Application {
                 activity.finish();
             }
         }
+    }
+
+    public RefWatcher getRefWatcher() {
+        return mRefWatcher;
     }
 }

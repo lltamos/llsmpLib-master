@@ -1,9 +1,11 @@
-package cn.llsmpdroid.belief.kit;
+package cn.llsmpdroid.belief.utils;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
+
+import cn.llsmpdroid.belief.ui.weiget.AutoHideIMEFrameLayout;
 
 /**
  * <p>Title:${type_inName}<p/>

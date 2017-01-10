@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.kit;
+package cn.llsmpdroid.belief.ui.weiget;
 
 import android.app.Activity;
 import android.content.Context;

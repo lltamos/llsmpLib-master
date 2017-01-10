@@ -1,5 +1,6 @@
 package cn.llsmpdroid.belief.utils;
 
+import android.annotation.TargetApi;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -59,6 +60,7 @@ public class CrashUtils
      *
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
+    @TargetApi(Build.VERSION_CODES.FROYO)
     public boolean init() {
         if (mInitialized) return true;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
@@ -114,6 +116,7 @@ public class CrashUtils
      *
      * @return 崩溃头
      */
+    @TargetApi(Build.VERSION_CODES.DONUT)
     private String getCrashHead() {
         return "\n************* Crash Log Head ****************" +
                 "\nDevice Manufacturer: " + Build.MANUFACTURER +// 设备厂商

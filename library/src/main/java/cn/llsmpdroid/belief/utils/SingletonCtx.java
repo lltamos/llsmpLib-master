@@ -1,4 +1,4 @@
-package cn.llsmpdroid.belief.kit;
+package cn.llsmpdroid.belief.utils;
 
 import android.content.Context;
 
@@ -13,6 +13,7 @@ import android.content.Context;
  */
 
 public abstract class SingletonCtx<T> {
+
     private T instance;
 
     protected abstract T newInstance(Context context);
@@ -21,7 +22,7 @@ public abstract class SingletonCtx<T> {
         if (instance == null) {
             synchronized (SingletonCtx.class) {
                 if (instance == null) {
-                    instance = newInstance(context.getApplicationContext());
+                    instance = newInstance(context);
                 }
             }
         }

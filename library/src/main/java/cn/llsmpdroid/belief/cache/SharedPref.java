@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import cn.llsmpdroid.belief.kit.LlsmpDroidConf;
-import cn.llsmpdroid.belief.kit.SingletonCtx;
+import cn.llsmpdroid.belief.utils.SingletonCtx;
 
 
 /**

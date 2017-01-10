@@ -64,6 +64,8 @@ public class LogUtils {
         } else {
             dir = Utils.getContext().getCacheDir().getPath() + File.separator + "log" + File.separator;
         }
+
+        System.out.println(dir);
         return new Builder();
     }
 

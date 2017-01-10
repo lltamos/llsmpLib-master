@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import cn.llsmpdroid.belief.kit.Codec;
 import cn.llsmpdroid.belief.kit.Kits;
 import cn.llsmpdroid.belief.kit.LlsmpDroidConf;
-import cn.llsmpdroid.belief.kit.SingletonCtx;
+import cn.llsmpdroid.belief.utils.SingletonCtx;
 
 
 /**
